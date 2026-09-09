@@ -1,0 +1,2 @@
+ALTER TABLE "workspace_settings" ADD COLUMN "unlock_failed_count" integer DEFAULT 0 NOT NULL;--> statement-breakpoint
+ALTER TABLE "workspace_settings" ADD COLUMN "unlock_locked_until" timestamp with time zone;

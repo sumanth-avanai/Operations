@@ -1,0 +1,189 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --radius: 0.625rem;
+
+  /* Neutral base — cool grey, low chroma, so status colour carries all the signal */
+  --background: oklch(0.982 0.003 264);
+  --foreground: oklch(0.216 0.012 264);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--foreground);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--foreground);
+  --muted: oklch(0.968 0.005 264);
+  --muted-foreground: oklch(0.532 0.014 264);
+  --border: oklch(0.914 0.007 264);
+  --input: oklch(0.914 0.007 264);
+  --ring: oklch(0.58 0.16 274);
+
+  --primary: oklch(0.474 0.163 274);
+  --primary-foreground: oklch(0.985 0.002 264);
+  --secondary: oklch(0.968 0.005 264);
+  --secondary-foreground: oklch(0.28 0.014 264);
+  --accent: oklch(0.955 0.014 274);
+  --accent-foreground: oklch(0.36 0.11 274);
+  --destructive: oklch(0.524 0.183 26);
+  --destructive-foreground: oklch(0.985 0.002 264);
+
+  /* Semantic — used by capacity bars, budget gauges, risk pills, utilization bands */
+  --ok: oklch(0.556 0.118 158);
+  --ok-soft: oklch(0.948 0.038 158);
+  --warn: oklch(0.678 0.146 66);
+  --warn-soft: oklch(0.964 0.048 84);
+  --danger: oklch(0.556 0.186 24);
+  --danger-soft: oklch(0.956 0.034 24);
+  --info: oklch(0.554 0.129 244);
+  --info-soft: oklch(0.952 0.032 244);
+  --idle: oklch(0.706 0.012 264);
+  --idle-soft: oklch(0.956 0.005 264);
+
+  /* Deterministic identity palette for members, clients and projects */
+  --hue-1: oklch(0.62 0.16 264);
+  --hue-2: oklch(0.63 0.15 190);
+  --hue-3: oklch(0.64 0.15 152);
+  --hue-4: oklch(0.70 0.14 92);
+  --hue-5: oklch(0.66 0.16 48);
+  --hue-6: oklch(0.62 0.18 18);
+  --hue-7: oklch(0.60 0.17 336);
+  --hue-8: oklch(0.58 0.17 300);
+}
+
+.dark {
+  --background: oklch(0.184 0.011 264);
+  --foreground: oklch(0.955 0.005 264);
+  --card: oklch(0.223 0.012 264);
+  --card-foreground: var(--foreground);
+  --popover: oklch(0.238 0.013 264);
+  --popover-foreground: var(--foreground);
+  --muted: oklch(0.262 0.012 264);
+  --muted-foreground: oklch(0.706 0.013 264);
+  --border: oklch(0.312 0.013 264);
+  --input: oklch(0.332 0.014 264);
+  --ring: oklch(0.64 0.15 274);
+
+  --primary: oklch(0.678 0.152 274);
+  --primary-foreground: oklch(0.17 0.02 274);
+  --secondary: oklch(0.276 0.013 264);
+  --secondary-foreground: oklch(0.95 0.005 264);
+  --accent: oklch(0.302 0.036 274);
+  --accent-foreground: oklch(0.88 0.06 274);
+  --destructive: oklch(0.638 0.183 24);
+  --destructive-foreground: oklch(0.16 0.02 24);
+
+  --ok: oklch(0.688 0.128 158);
+  --ok-soft: oklch(0.286 0.048 158);
+  --warn: oklch(0.782 0.136 76);
+  --warn-soft: oklch(0.312 0.052 76);
+  --danger: oklch(0.668 0.168 24);
+  --danger-soft: oklch(0.306 0.058 24);
+  --info: oklch(0.678 0.126 244);
+  --info-soft: oklch(0.288 0.05 244);
+  --idle: oklch(0.492 0.012 264);
+  --idle-soft: oklch(0.268 0.008 264);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-idle: var(--idle);
+  --color-idle-soft: var(--idle-soft);
+
+  --color-hue-1: var(--hue-1);
+  --color-hue-2: var(--hue-2);
+  --color-hue-3: var(--hue-3);
+  --color-hue-4: var(--hue-4);
+  --color-hue-5: var(--hue-5);
+  --color-hue-6: var(--hue-6);
+  --color-hue-7: var(--hue-7);
+  --color-hue-8: var(--hue-8);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Inter, ui-sans-serif, system-ui, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Mono", "SF Mono", "Segoe UI Mono", Menlo, Consolas, monospace;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "cv11", "ss01";
+    font-variation-settings: normal;
+    text-rendering: optimizeLegibility;
+  }
+  /* Every figure in this product is meant to be compared down a column. */
+  .tnum,
+  input[type="text"].tnum,
+  td,
+  th {
+    font-variant-numeric: tabular-nums;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
+  /* Slim scrollbars: the planner and grids scroll a lot. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+}
+
+@utility grid-sticky-left {
+  position: sticky;
+  left: 0;
+  z-index: 10;
+  background-color: var(--card);
+}

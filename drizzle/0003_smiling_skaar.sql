@@ -1,0 +1,2 @@
+ALTER TABLE "workspace_settings" ADD COLUMN "time_zone" text DEFAULT 'UTC' NOT NULL;--> statement-breakpoint
+ALTER TABLE "workspace_settings" ADD CONSTRAINT "workspace_time_zone_present" CHECK (length("workspace_settings"."time_zone") between 1 and 64);
